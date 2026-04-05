@@ -48,3 +48,6 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+// Use our fork with OAuth support instead of upstream
+replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada v0.6.3-0.20260405112232-0505afadb989

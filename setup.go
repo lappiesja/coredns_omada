@@ -26,7 +26,9 @@ func setup(c *caddy.Controller) error {
 	url := config.Controller_url
 	u := config.Username
 	p := config.Password
-	o, err := NewOmada(ctx, url, u, p)
+	clientId := config.Client_id
+	clientSecret := config.Client_secret
+	o, err := NewOmada(ctx, url, u, p, clientId, clientSecret)
 	if err != nil {
 		cancel()
 		return plugin.Error("omada", err)

@@ -59,7 +59,7 @@ func TestUpdate(t *testing.T) {
 	url := testServer.URL
 	u := "test"
 	p := "test"
-	testOmada, err := NewOmada(context.TODO(), url, u, p)
+	testOmada, err := NewOmada(context.TODO(), url, u, p, "", "")
 	if err != nil {
 		t.Fatalf("test failure on 'TestUpdate/NewOmada': %v", err)
 	}

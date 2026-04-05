@@ -26,9 +26,14 @@ type Omada struct {
 	Fall       fall.F
 }
 
-func NewOmada(ctx context.Context, url string, u string, p string) (*Omada, error) {
+func NewOmada(ctx context.Context, url string, u string, p string, clientId string, clientSecret string) (*Omada, error) {
 
 	omada := omada.New(url)
+
+	// Set OAuth credentials if provided
+	if clientId != "" && clientSecret != "" {
+		omada.SetOAuthCredentials(clientId, clientSecret)
+	}
 
 	zones := make(map[string]*file.Zone)
 	records := make(map[string]DnsRecords)

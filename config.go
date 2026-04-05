@@ -13,6 +13,8 @@ type config struct {
 	Site           string `validate:"required"`
 	Username       string `validate:"required"`
 	Password       string `validate:"required"`
+	Client_id      string // OAuth client ID (optional, for controller 6.2.x+)
+	Client_secret  string // OAuth client secret (optional, for controller 6.2.x+)
 
 	refresh_minutes           int           // update dns zones every x minutes
 	refresh_login_hours       int           // login and get a new session token every x hours
@@ -63,6 +65,18 @@ func parse(c *caddy.Controller) (config config, err error) {
 					return config, c.ArgErr()
 				}
 				config.Password = c.Val()
+
+			case "client_id":
+				if !c.NextArg() {
+					return config, c.ArgErr()
+				}
+				config.Client_id = c.Val()
+
+			case "client_secret":
+				if !c.NextArg() {
+					return config, c.ArgErr()
+				}
+				config.Client_secret = c.Val()
 
 			case "refresh_minutes":
 				if !c.NextArg() {
