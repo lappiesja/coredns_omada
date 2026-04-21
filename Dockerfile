@@ -22,6 +22,7 @@ RUN /coredns_omada/scripts/clone-coredns.sh
 # insert plugin config
 RUN sed -i '/^route53:route53$/i omada:github.com/dougbw/coredns_omada' /coredns/plugin.cfg
 RUN echo "replace github.com/dougbw/coredns_omada => /coredns_omada" >> /coredns/go.mod
+RUN echo "replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada v0.6.3-0.20260420202259-9570faa774db" >> /coredns/go.mod
 
 # compile coredns
 WORKDIR /coredns
