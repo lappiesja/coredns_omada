@@ -50,4 +50,6 @@ require (
 )
 
 // Use our fork with OAuth support instead of upstream
-replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada v0.6.3-0.20260405112232-0505afadb989
+//replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada v0.6.3-0.20260420202259-9570faa774db
+// replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada fix-insight-clients
+replace github.com/dougbw/go-omada v0.6.2 => github.com/lappiesja/go-omada v0.6.3-0.20260420202259-9570faa774db
